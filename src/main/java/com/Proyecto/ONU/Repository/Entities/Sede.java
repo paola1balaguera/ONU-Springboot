@@ -30,8 +30,10 @@ public class Sede {
     @Column(name = "direccion" , nullable = false)
     private String direccion;
 
-    @Column(name = "director" , nullable = false)
-    private String director;
+
+    @OneToOne
+    @JoinColumn(name = "persona_id", referencedColumnName = "id")
+    private Persona director;
 
     @OneToOne
     @JoinColumn(name = "ciudad_id", referencedColumnName = "id")

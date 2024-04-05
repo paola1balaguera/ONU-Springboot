@@ -20,7 +20,7 @@ public class SocioConversion {
         SocioDTO socioDTO = dbm.map(socio, SocioDTO.class);
 
         socioDTO.setId(socio.getId());
-        socioDTO.setCuentaBancaria(socio.getCuentaBancaria());
+        socioDTO.setSede(socio.getSede());
         socioDTO.setPersona(socio.getPersona());
         socioDTO.setCuota(socio.getCuota());
 

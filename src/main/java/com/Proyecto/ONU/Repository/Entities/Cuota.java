@@ -1,6 +1,7 @@
 package com.Proyecto.ONU.Repository.Entities;
 
 import java.math.BigInteger;
+import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,14 +24,14 @@ public class Cuota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-    @Column(name = "nombre", nullable = true)
-    private String nombre;
+    @Column(name = "cuentaBancaria", nullable = true)
+    private String cuentaBancaria;
 
     @Column(name = "valor", nullable = true)
     private Long valor;
 
-    @Column(name = "estado", nullable = true)
-    private boolean estado;
+    @Column(name = "fechaPago", nullable = true)
+    private Date fechaPago;
 
     @OneToOne
     private TipoCuota tipoCuota;

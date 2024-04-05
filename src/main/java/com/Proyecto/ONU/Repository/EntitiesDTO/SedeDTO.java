@@ -1,28 +1,29 @@
 package com.Proyecto.ONU.Repository.EntitiesDTO;
 
 import java.math.BigInteger;
-import java.sql.Date;
+import java.util.List;
 
-import com.Proyecto.ONU.Repository.Entities.TipoCuota;
+import com.Proyecto.ONU.Repository.Entities.Ciudad;
+import com.Proyecto.ONU.Repository.Entities.Envio;
+import com.Proyecto.ONU.Repository.Entities.Persona;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
-public class CuotaDTO {
-
-
+public class SedeDTO {
+    @NotEmpty(message = "no puede estar vacio")
     private BigInteger id;
 
     @NotEmpty(message = "no puede estar vacio")
-    private String cuentaBancaria;
+    private String direccion;
 
     @NotEmpty(message = "no puede estar vacio")
-    private Long valor;
+    private Persona director;
 
     @NotEmpty(message = "no puede estar vacio")
-    private Date fechaPago;
+    private Ciudad ciudad;
 
     @NotEmpty(message = "no puede estar vacio")
-    private TipoCuota tipoCuota;
+    private List<Envio> envios;
 }

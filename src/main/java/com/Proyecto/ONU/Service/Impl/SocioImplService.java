@@ -41,7 +41,7 @@ public SocioDTO update(BigInteger id, SocioDTO socioDTO){
         socioCurrent.setId(id);
         socioCurrent.setPersona(socioDTO.getPersona());
         socioCurrent.setCuota(socioDTO.getCuota());
-        socioCurrent.setCuentaBancaria(socioDTO.getCuentaBancaria());
+        socioCurrent.setSede(socioDTO.getSede());
 
         socioRepository.save(socioCurrent);
         
