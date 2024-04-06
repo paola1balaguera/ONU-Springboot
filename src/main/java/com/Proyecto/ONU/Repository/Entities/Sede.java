@@ -5,12 +5,14 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -30,15 +32,9 @@ public class Sede {
     @Column(name = "direccion" , nullable = false)
     private String direccion;
 
-
     @OneToOne
-    @JoinColumn(name = "persona_id", referencedColumnName = "id")
+    @JoinColumn(name = "director_id", nullable = true)
     private Persona director;
-
-    @OneToOne
-    @JoinColumn(name = "ciudad_id", referencedColumnName = "id")
-    private Ciudad ciudad;
-
 
     @ManyToMany
     @JoinTable(
@@ -46,5 +42,9 @@ public class Sede {
         joinColumns = @JoinColumn(name = "sede_id"),
         inverseJoinColumns = @JoinColumn(name = "envio_id"))
     private List<Envio> envios;
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Ciudad ciudad;
 
 }

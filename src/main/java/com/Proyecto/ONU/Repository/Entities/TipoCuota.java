@@ -16,13 +16,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tipoCuenta")
+@Table(name = "tipoCuota")
 public class TipoCuota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-    @Column(name = "direccion" , nullable = false, unique = true)
+    @Column(name = "nombre" , nullable = false, unique = true)
     private String nombre;
+
+
 
 }

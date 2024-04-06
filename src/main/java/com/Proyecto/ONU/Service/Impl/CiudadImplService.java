@@ -38,7 +38,6 @@ public CiudadDTO update(BigInteger id, CiudadDTO ciudadDTO){
 
         ciudadCurrent.setId(id);
         ciudadCurrent.setNombre(ciudadDTO.getNombre());
-        ciudadCurrent.setSede(ciudadDTO.getSede());
 
         ciudadRepository.save(ciudadCurrent);
         return ciudadConversion.convertirCiudadADto(ciudadCurrent);

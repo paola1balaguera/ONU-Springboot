@@ -25,7 +25,7 @@ public class CuotaConversion {
         cuotaDTO.setCuentaBancaria(cuota.getCuentaBancaria());
         cuotaDTO.setValor(cuota.getValor());
         cuotaDTO.setFechaPago(cuota.getFechaPago());
-        cuotaDTO.setTipoCuota(cuota.getTipoCuota());
+        //cuotaDTO.setTipoCuotas(cuota.getTipoCuotas());
 
         return cuotaDTO;
     }

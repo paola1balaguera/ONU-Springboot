@@ -2,13 +2,14 @@ package com.Proyecto.ONU.Configuration;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import com.Proyecto.ONU.Repository.Entities.Ciudad;
 import com.Proyecto.ONU.Repository.EntitiesDTO.CiudadDTO;
 
 
-@Configuration
+
+@Component
 public class CiudadConversion {
     @Autowired
     private ModelMapper dbm;
@@ -22,7 +23,7 @@ public class CiudadConversion {
 
         ciudadDTO.setId(ciudad.getId());
         ciudadDTO.setNombre(ciudad.getNombre());
-        ciudadDTO.setSede(ciudad.getSede());
+
 
 
         return ciudadDTO;

@@ -1,14 +1,11 @@
 package com.Proyecto.ONU.Repository.Entities;
 
 import java.math.BigInteger;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +24,5 @@ public class Ciudad {
     @Column(name = "nombre" , nullable = false, unique = true)
     private String nombre;
 
-    @OneToOne(mappedBy = "ciudad", cascade = CascadeType.ALL)
-    private Sede sede;
+
 }

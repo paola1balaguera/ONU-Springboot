@@ -48,7 +48,7 @@ public class CuotaImplService implements CuotaService {
             cuotaCurrent.setId(id);
             cuotaCurrent.setCuentaBancaria(cuotaDTO.getCuentaBancaria());
             cuotaCurrent.setFechaPago(cuotaDTO.getFechaPago());
-            cuotaCurrent.setTipoCuota(cuotaDTO.getTipoCuota());
+            //cuotaCurrent.setTipoCuota(cuotaDTO.getTipoCuota());
             cuotaCurrent.setValor(cuotaDTO.getValor());
 
             cuotaRepository.save(cuotaCurrent);

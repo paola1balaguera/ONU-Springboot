@@ -23,7 +23,11 @@ public class SedeConversion {
         sedeDTO.setId(sede.getId());
         sedeDTO.setDireccion(sede.getDireccion());
         sedeDTO.setDirector(sede.getDirector());
-        sedeDTO.setCiudad(sede.getCiudad());
+        //sedeDTO.setCiudad(sede.getCiudades());
+        sedeDTO.setEnvios(sede.getEnvios());
+
+        
+
 
         return sedeDTO;
     }

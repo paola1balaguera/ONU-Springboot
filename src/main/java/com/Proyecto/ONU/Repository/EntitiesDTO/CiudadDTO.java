@@ -10,7 +10,6 @@ import lombok.Data;
 @Data
 public class CiudadDTO {
 
-    @NotEmpty(message = "no puede estar vacio")
     private BigInteger id;
 
     @NotEmpty(message = "no puede estar vacio")
