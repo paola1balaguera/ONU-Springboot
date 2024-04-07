@@ -27,7 +27,7 @@ public class Voluntario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-    private enum tipoVoluntario{
+    public enum tipoVoluntario{
         sanitario,
         administrativo
     }
@@ -36,7 +36,7 @@ public class Voluntario {
     private tipoVoluntario tipo; 
 
     @Column(name = "disponibilidad" , nullable = false)
-    private boolean disponibilidad;
+    private Boolean disponibilidad;
 
     @Column(name = "numeroTrabajos" , nullable = false)
     private Long numeroTrabajos;
@@ -49,11 +49,11 @@ public class Voluntario {
     @JoinColumn(name = "persona_id", referencedColumnName = "id")
     private Persona persona;
 
-     @ManyToMany
+    @ManyToMany
     @JoinTable(
         name = "envio_voluntario",
         joinColumns = @JoinColumn(name = "voluntario_id"),
         inverseJoinColumns = @JoinColumn(name = "envio_id"))
-    private List<Envio> envio_voluntario;
+    private List<Envio> envio_voluntario; 
 
 }

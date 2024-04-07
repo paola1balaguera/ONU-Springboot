@@ -1,23 +1,18 @@
 package com.Proyecto.ONU.Repository.EntitiesDTO;
 
 import java.math.BigInteger;
-import java.util.List;
 
 import com.Proyecto.ONU.Repository.Entities.Ciudad;
-import com.Proyecto.ONU.Repository.Entities.Envio;
+
 import lombok.Data;
 
 @Data
-public class SedeDTO {
-
+public class RefugioDTO {
     private BigInteger id;
+
+    private String nombre;
 
     private String direccion;
 
-    private String director;
-
-    private List<Envio> envios;
-
     private Ciudad ciudad;
-
 }

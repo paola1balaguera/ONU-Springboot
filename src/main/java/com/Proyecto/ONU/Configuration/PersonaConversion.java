@@ -24,7 +24,7 @@ public class PersonaConversion {
         personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
         personaDTO.setDireccionVivienda(persona.getDireccionVivienda());
         personaDTO.setCorreoElectronico(persona.getCorreoElectronico());
-        personaDTO.setNumero(persona.getNumero());
+        personaDTO.setNumeroTelefono(persona.getNumeroTelefono());
         personaDTO.setSede(persona.getSede());
 
         return personaDTO;

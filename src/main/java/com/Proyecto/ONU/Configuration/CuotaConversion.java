@@ -22,10 +22,10 @@ public class CuotaConversion {
 
 
         cuotaDTO.setId(cuota.getId());
-        cuotaDTO.setCuentaBancaria(cuota.getCuentaBancaria());
         cuotaDTO.setValor(cuota.getValor());
         cuotaDTO.setFechaPago(cuota.getFechaPago());
-        //cuotaDTO.setTipoCuotas(cuota.getTipoCuotas());
+        cuotaDTO.setTipoCuota(cuota.getTipoCuota());
+        /* cuotaDTO.setSocio(cuota.getSocio()); */
 
         return cuotaDTO;
     }

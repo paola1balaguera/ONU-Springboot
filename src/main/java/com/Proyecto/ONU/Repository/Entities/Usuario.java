@@ -1,12 +1,16 @@
 package com.Proyecto.ONU.Repository.Entities;
 
 import java.math.BigInteger;
-
+import java.util.Date;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,18 +20,24 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tipoCuota")
-public class TipoCuota {
+@Table(name = "usuario")
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-    @Column(name = "nombre" , nullable = false, unique = true)
-    private String nombre;
+    @Column(nullable = false,unique = true)
+    private Long cedula;
 
-    @Column(name = "valor" , nullable = false)
-    private Long valor;
+    private String email;
 
+    @Column(name = "pwd")
+    private String password;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Role> roles;
 
+    @Column(name="fecha")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date fecha; 
 }

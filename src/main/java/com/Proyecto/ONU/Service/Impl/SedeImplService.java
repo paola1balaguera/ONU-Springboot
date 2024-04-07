@@ -37,7 +37,7 @@ public SedeDTO update(BigInteger id, SedeDTO sedeDTO){
     if(sedeCurrentOptional.isPresent()){
         Sede sedeCurrent = sedeConversion.convertirDTOASede(sedeDTO);
         sedeCurrent.setId(id);
-        //sedeCurrent.setCiudades(sedeDTO.getCiudades());
+        sedeCurrent.setCiudad(sedeDTO.getCiudad());
         sedeCurrent.setDireccion(sedeDTO.getDireccion());
         sedeCurrent.setDirector(sedeDTO.getDirector());
         sedeCurrent.setEnvios(sedeDTO.getEnvios());

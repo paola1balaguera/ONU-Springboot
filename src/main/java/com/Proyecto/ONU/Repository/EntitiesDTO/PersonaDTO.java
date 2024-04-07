@@ -11,13 +11,12 @@ import lombok.Data;
 @Data
 public class PersonaDTO {
 
-    @NotEmpty(message = "no puede estar vacio")
     private BigInteger id;
 
     @NotEmpty(message = "no puede estar vacio")
     private String nombreCompleto;
 
-    @NotEmpty(message = "no puede estar vacio")
+    @NotNull(message = "no puede estar vacio")
     private Date fechaNacimiento ;
 
     @NotEmpty(message = "no puede estar vacio")
@@ -26,13 +25,10 @@ public class PersonaDTO {
     @NotEmpty(message = "no puede estar vacio")
     private String correoElectronico;
 
-    @NotEmpty(message = "no puede estar vacio")
-    private Long numero;
+    @NotNull(message = "no puede estar vacio")
+    private Long numeroTelefono;
 
-    @NotEmpty(message = "no puede estar vacio")
     private Sede sede;
 
-    @NotNull(message = "no puede estar vacio")
-    private Boolean esSocio;
 }
 

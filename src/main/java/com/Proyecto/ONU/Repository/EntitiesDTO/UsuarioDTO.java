@@ -1,21 +1,20 @@
 package com.Proyecto.ONU.Repository.EntitiesDTO;
 
 import java.math.BigInteger;
+import java.util.List;
 
-import jakarta.validation.constraints.NotEmpty;
+import com.Proyecto.ONU.Repository.Entities.Role;
+
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class TipoCuotaDTO {
+public class UsuarioDTO {
 
     private BigInteger id;
-
-    @NotEmpty(message = "no puede estar vacio")
-    private String nombre;
-
     @NotNull(message = "no puede estar vacio")
-    private Long valor;
-
-
+    private Long cedula;
+    private String email;
+    private List<Role> roles;
+    
 }

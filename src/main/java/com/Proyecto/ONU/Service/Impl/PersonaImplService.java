@@ -40,10 +40,10 @@ public PersonaDTO update(BigInteger id, PersonaDTO personaDTO){
         personaCurrent.setId(id);
         personaCurrent.setNombreCompleto(personaDTO.getNombreCompleto());
         personaCurrent.setFechaNacimiento(personaDTO.getFechaNacimiento());
-        personaCurrent.setNumero(personaDTO.getNumero());
+        personaCurrent.setNumeroTelefono(personaDTO.getNumeroTelefono());
         personaCurrent.setCorreoElectronico(personaDTO.getCorreoElectronico());
         personaCurrent.setDireccionVivienda(personaDTO.getDireccionVivienda());
-        //personaCurrent.getSedes(personaDTO.getSedes());
+        personaCurrent.setSede(personaDTO.getSede());
 
         personaRepository.save(personaCurrent);
         return personaConversion.convertirPersonaADto(personaCurrent);

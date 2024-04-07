@@ -26,20 +26,29 @@ public class Cuota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-    @Column(name = "cuentaBancaria", nullable = true)
-    private String cuentaBancaria;
-
     @Column(name = "valor", nullable = true)
     private Long valor;
 
     @Column(name = "fechaPago", nullable = true)
     private Date fechaPago;
 
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    private TipoCuota tipoCuota;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "tipoCuota_id")
-    private TipoCuota tipoCuota;
+    private Socio socio;
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*     @ManyToOne(mappedBy = "cuota")
     private List<TipoCuota> tipoCuotas; */

@@ -2,8 +2,8 @@ package com.Proyecto.ONU.Repository.Entities;
 
 import java.math.BigInteger;
 import java.sql.Date;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,12 +27,9 @@ public class Persona {
     private Date fechaNacimiento ;
     private String direccionVivienda;
     private String correoElectronico;
-    private Long numero;
-    private boolean esSocio;
-
+    private Long numeroTelefono;
     
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Sede sede;
-    
+    @ManyToOne
+    private Sede sede;  
 
 }

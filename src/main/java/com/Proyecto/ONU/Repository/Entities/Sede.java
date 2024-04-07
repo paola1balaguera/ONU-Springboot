@@ -2,7 +2,6 @@ package com.Proyecto.ONU.Repository.Entities;
 
 import java.math.BigInteger;
 import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,7 +12,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,9 +30,7 @@ public class Sede {
     @Column(name = "direccion" , nullable = false)
     private String direccion;
 
-    @OneToOne
-    @JoinColumn(name = "director_id", nullable = true)
-    private Persona director;
+    private String director;
 
     @ManyToMany
     @JoinTable(

@@ -27,11 +27,11 @@ public class Envio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-    @Column(name="create_at")
+    @Column(name="fechaSalida")
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date createAt; 
+    private Date fechaSalida; 
 
-    @Column(name="codigo")
+    @Column(name="codigo", unique = true)
     private String codigo;
 
     @ManyToOne(fetch = FetchType.EAGER)
