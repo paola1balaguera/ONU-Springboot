@@ -32,7 +32,7 @@ public class Voluntario {
         administrativo
     }
 
-    @Column(name = "tipoVoluntario", nullable = false)
+    @Column(name = "tipo", nullable = false)
     private tipoVoluntario tipo; 
 
     @Column(name = "disponibilidad" , nullable = false)

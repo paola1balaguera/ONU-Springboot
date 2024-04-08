@@ -21,26 +21,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Proyecto.ONU.Repository.EntitiesDTO.VoluntarioDTO;
-import com.Proyecto.ONU.Service.VoluntarioService;
+import com.Proyecto.ONU.Repository.EntitiesDTO.MaterialDTO;
+import com.Proyecto.ONU.Service.MaterialService;
 
 import lombok.AllArgsConstructor;
 
+
 @AllArgsConstructor
 @RestController
-@RequestMapping("/voluntarios")
-public class VoluntarioController {
+@RequestMapping("/materiales")
+public class MaterialController {
     @Autowired
-    private VoluntarioService voluntarioService;
+    private MaterialService materialService;
     
     @GetMapping("/")
-    public List<VoluntarioDTO> findAll() {
-        return voluntarioService.findAll();
+    public List<MaterialDTO> findAll() {
+        return materialService.findAll();
     }
 
 
     @PostMapping("/")
-    public ResponseEntity<Map<String, Object>> save(@Validated @RequestBody VoluntarioDTO voluntarioDTO, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> save(@Validated @RequestBody MaterialDTO materialDTO, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
 
         try {
@@ -54,11 +55,11 @@ public class VoluntarioController {
                 return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
             }
 
-            VoluntarioDTO voluntarioSave = null;
-            voluntarioSave = voluntarioService.save(voluntarioDTO);
+           MaterialDTO materialSave = null;
+           materialSave = materialService.save(materialDTO);
 
-            response.put("mensaje", "La persona ha sido creado con éxito");
-            response.put("Persona", voluntarioSave);
+            response.put("mensaje", "El material ha sido creado con éxito");
+            response.put("Material", materialSave);
 
             return new ResponseEntity<>(response, HttpStatus.OK);
 
@@ -72,7 +73,7 @@ public class VoluntarioController {
     
 
     @PutMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> update(@PathVariable BigInteger id, @Validated @RequestBody VoluntarioDTO voluntarioDTO, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> update(@PathVariable BigInteger id, @Validated @RequestBody MaterialDTO materialDTO, BindingResult result) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -87,11 +88,11 @@ public class VoluntarioController {
                 return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
             }
 
-            VoluntarioDTO voluntarioUpdate = null;
-            voluntarioUpdate = voluntarioService.update(id, voluntarioDTO);
+            MaterialDTO materialUpdate = null;
+            materialUpdate = materialService.update(id, materialDTO);
 
-            response.put("mensaje", "La persona ha sido actualizado con éxito");
-            response.put("Persona", voluntarioUpdate);
+            response.put("mensaje", "El material ha sido actualizado con éxito");
+            response.put("Material", materialUpdate);
 
             return new ResponseEntity<>(response, HttpStatus.OK);
 
@@ -105,11 +106,6 @@ public class VoluntarioController {
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable BigInteger id){
-        voluntarioService.deleteById(id);
+        materialService.deleteById(id);
     } 
-
-    @GetMapping("/PorProfesionYSede")
-    public List<VoluntarioDTO>  findVoluntarioByProfesionAndSede(){
-        return voluntarioService.findAll();
-    }
 }

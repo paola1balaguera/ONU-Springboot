@@ -64,4 +64,15 @@ public List<EnvioDTO> findAll(){
                  .toList();
     }
 
+@Override
+@Transactional(readOnly = true)
+public EnvioDTO findById(BigInteger id){
+    Optional<Envio> envioCurrentOptional = envioRepository.findById(id);
+
+    return envioConversion.convertirEnvioADto(envioCurrentOptional.get());
+
+}
+
+
+
 }

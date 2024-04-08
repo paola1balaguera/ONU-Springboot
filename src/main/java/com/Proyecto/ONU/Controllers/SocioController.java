@@ -107,4 +107,11 @@ public class SocioController {
     public void deleteById(@PathVariable BigInteger id){
         socioService.deleteById(id);
     } 
+
+    
+    @GetMapping("/socioTipoCuota/{tipoCuotaid}")
+    List<SocioDTO> findAllSocioByTipoCuota(@PathVariable("tipoCuotaid") BigInteger tipoCuotaid){
+        return socioService.findAllSocioByTipoCuota(tipoCuotaid);
+    }
+
 }

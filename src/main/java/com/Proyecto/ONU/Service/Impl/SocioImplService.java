@@ -66,13 +66,11 @@ public List<SocioDTO> findAll(){
 
 @Override
 @Transactional(readOnly = true)
-public List<SocioDTO> findAllSocioByTipoCuota(BigInteger cuotaid){
-    Optional<TipoCuota> tipoCuota = tipoCuotaRepository.findById(cuotaid);
+public List<SocioDTO> findAllSocioByTipoCuota(BigInteger tipoCuotaid){
+    Optional<TipoCuota> tipoCuota = tipoCuotaRepository.findById(tipoCuotaid);
     List<Socio> socios = (List<Socio>) socioRepository.findAllSocioByTipoCuota(tipoCuota.get());
     return socios.stream().map(socio -> socioConversion.convertirSocioADto(socio)).toList();
     
-
-
 } 
 
 

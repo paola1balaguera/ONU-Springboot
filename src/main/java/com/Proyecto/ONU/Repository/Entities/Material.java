@@ -22,10 +22,12 @@ public class Material {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-    public enum tipo {
+    public enum tipoMaterial {
         alimentos,
         medicamentos
     }
+    @Column(name = "tipo", nullable = false)
+    private tipoMaterial tipo; 
 
     @Column(name = "nombre" , nullable = false)
     private String nombre;

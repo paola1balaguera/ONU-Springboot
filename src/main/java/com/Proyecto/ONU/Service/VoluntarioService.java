@@ -14,5 +14,7 @@ public interface VoluntarioService {
     void deleteById(BigInteger id);
 
     List<VoluntarioDTO> findAll();
+
+    List<VoluntarioDTO> findVoluntarioByProfesionAndSede();
     
 }

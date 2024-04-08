@@ -14,4 +14,6 @@ public interface EnvioService {
     void deleteById(BigInteger id);
 
     List<EnvioDTO> findAll();
+
+    EnvioDTO findById(BigInteger id);
 }

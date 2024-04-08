@@ -42,3 +42,18 @@ INSERT INTO socio (persona_id, tipo_cuota_id, cuenta_bancaria) VALUES (1, 1, '12
 INSERT INTO socio (persona_id, tipo_cuota_id, cuenta_bancaria) VALUES (2, 2, '9876543210');
 INSERT INTO socio (persona_id, tipo_cuota_id, cuenta_bancaria) VALUES (3, 3, '4567891230'); 
 
+-- Insertar un Voluntario
+INSERT INTO voluntario (tipo, disponibilidad, numero_trabajos, profesion, persona_id) VALUES (1, true, 5, 'profesion1', 1);
+
+INSERT INTO voluntario (tipo, disponibilidad, numero_trabajos, profesion, persona_id) VALUES (1, false, 3, 'profesion2', 2);
+
+INSERT INTO voluntario (tipo, disponibilidad, numero_trabajos, profesion, persona_id) VALUES (1, true, 7, 'profesion3', 3);
+
+
+-- Insertar materiales
+INSERT INTO material (tipo, nombre) VALUES (0, 'Arroz');
+INSERT INTO material (tipo, nombre) VALUES (0, 'Frijoles');
+INSERT INTO material (tipo, nombre) VALUES (0, 'Aceite');
+INSERT INTO material (tipo, nombre) VALUES (1, 'Paracetamol');
+INSERT INTO material (tipo, nombre) VALUES (1, 'Ibuprofeno');
+INSERT INTO material (tipo, nombre) VALUES (1, 'Amoxicilina');

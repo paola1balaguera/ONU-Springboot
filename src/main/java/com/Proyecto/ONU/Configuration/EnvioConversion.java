@@ -1,5 +1,7 @@
 package com.Proyecto.ONU.Configuration;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,15 +18,15 @@ public class EnvioConversion {
         return dbm.map(envioDTO,Envio.class);
     }
 
-    public EnvioDTO convertirEnvioADto(Envio envio){
-        EnvioDTO envioDTO = dbm.map(envio, EnvioDTO.class);
+    public EnvioDTO convertirEnvioADto(Envio enviito){
+        EnvioDTO envioDTO = dbm.map(enviito, EnvioDTO.class);
 
-        envioDTO.setId(envio.getId());
-        envioDTO.setFechaSalida(envio.getFechaSalida());
-        envioDTO.setCodigo(envio.getCodigo());
-        envioDTO.setRefugio(envio.getRefugio());
-        envioDTO.setSedes(envio.getSedes());
-        envioDTO.setVoluntarios(envio.getVoluntarios());
+        envioDTO.setId(enviito.getId());
+        envioDTO.setFechaSalida(enviito.getFechaSalida());
+        envioDTO.setCodigo(enviito.getCodigo());
+        envioDTO.setRefugio(enviito.getRefugio());
+        envioDTO.setSedes(enviito.getSedes());
+        envioDTO.setVoluntarios(enviito.getVoluntarios());
 
         
         return envioDTO;

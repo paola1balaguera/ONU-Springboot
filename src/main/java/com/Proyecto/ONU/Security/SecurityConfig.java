@@ -34,16 +34,28 @@ public class SecurityConfig {
         requestHandler.setCsrfRequestAttributeName("_csrf");
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/h2-console", "/authenticate").permitAll()
-                .requestMatchers("/personas/**","/socios/**","/voluntarios/**","/envios/**").hasRole("DIRECTOR")
-                .requestMatchers( "/ciudades/**", "/cuotas/**","/envios/**","/personas/**","/refugios/**","/sedes/**","tipoCuotas/**","/usuarios/**","/voluntarios/**","/socios/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.GET, "/socios/socioTipoCuota/{tipoCuotaid}").hasAnyRole("DIRECTOR", "ADMIN")
+                .requestMatchers("/personas/**","/socios/**","/voluntarios/**","/envios/**").hasAnyRole("DIRECTOR", "ADMIN")
+                .requestMatchers( "/ciudades/**", "/cuotas/**","/refugios/**","/sedes/**","tipoCuotas/**","/usuarios/**","/materiales/**").hasRole("ADMIN")
                 .anyRequest().denyAll())
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
+                /* 
+                 * 1. La autenticación a las rutas se genera en cascada, por ende
+                 * si encuentra una ruta que ya se ha generado, arroja error, o solo
+                 * la deja autenticar para la primera persona/rol.
+                 * 2. Se usa hasAnyRoles, para darle el acceso a variso roles, por ende,
+                 * si hay rutas que compartan el mismo rol, se usa el hasAnyRoles.
+                 * 3. Si hay subrutas se agregan por aparte y con el metodo. Se 
+                 * tienen que agregar primero.
+                 * 4. El rol con más rutas se agrega de ultimo (El admin).
+                 * pepeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+                */
         http.addFilterAfter(jwtValidationFilter, BasicAuthenticationFilter.class);
         http.cors(cors -> corsConfigurationSource());
         http.csrf(csrf -> csrf
                 .csrfTokenRequestHandler(requestHandler)
-                .ignoringRequestMatchers("/authenticate","/h2-console","/usuarios/**","/ciudades/**", "/cuotas/**","/envios/**","/personas/**","/refugios/**","/sedes/**","tipoCuotas/**","/usuarios/**","/voluntarios/**","/socios/**")
+                .ignoringRequestMatchers("/authenticate","/h2-console","/usuarios/**","/ciudades/**", "/cuotas/**","/envios/**","/personas/**","/refugios/**","/sedes/**","tipoCuotas/**","/usuarios/**","/voluntarios/**","/socios/**","/materiales/**")
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class);
         return http.build();

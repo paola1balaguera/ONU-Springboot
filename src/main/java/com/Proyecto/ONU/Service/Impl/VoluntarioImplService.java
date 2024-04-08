@@ -59,6 +59,7 @@ public void deleteById(BigInteger id){
 }
 
 
+
 @Override
 @Transactional(readOnly = true)
 public List<VoluntarioDTO> findAll(){
@@ -67,5 +68,14 @@ public List<VoluntarioDTO> findAll(){
                  .map(voluntariito -> voluntarioConversion.convertirVoluntarioADto(voluntariito))
                  .toList();
     }
+
+@Override
+public  List<VoluntarioDTO> findVoluntarioByProfesionAndSede(){
+    List<Voluntario> voluntarios = (List<Voluntario>) voluntarioRepository.findVoluntarioByProfesionAndSede();
+    return voluntarios.stream()
+                    .map(voluntariito -> voluntarioConversion.convertirVoluntarioADto(voluntariito))
+                    .toList();
+
+}
 
 }
