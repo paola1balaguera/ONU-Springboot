@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +36,7 @@ public class CuotaImplService implements CuotaService {
     }
 
 
-    public CuotaDTO update(BigInteger id, CuotaDTO cuotaDTO){
+    public CuotaDTO update(Long id, CuotaDTO cuotaDTO){
 
         //busca el id de la cuota en la bd
         Optional<Cuota> cuotaCurrentOptional = cuotaRepository.findById(id);
@@ -61,7 +61,7 @@ public class CuotaImplService implements CuotaService {
     }
 
     @Override
-    public void deleteById(BigInteger id){
+    public void deleteById(Long id){
         cuotaRepository.deleteById(id);
     }
 

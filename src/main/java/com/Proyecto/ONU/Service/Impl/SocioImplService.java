@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +34,7 @@ public SocioDTO save(SocioDTO socioDTO) {
     return socioConversion.convertirSocioADto(socio);
 }
 
-public SocioDTO update(BigInteger id, SocioDTO socioDTO){
+public SocioDTO update(Long id, SocioDTO socioDTO){
     Optional<Socio> socioCurrentOptional = socioRepository.findById(id);
     if(socioCurrentOptional.isPresent()){
         Socio socioCurrent = socioConversion.convertirDTOASocio(socioDTO);
@@ -51,7 +51,7 @@ public SocioDTO update(BigInteger id, SocioDTO socioDTO){
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     socioRepository.deleteById(id);
 }
 
@@ -66,7 +66,7 @@ public List<SocioDTO> findAll(){
 
 @Override
 @Transactional(readOnly = true)
-public List<SocioDTO> findAllSocioByTipoCuota(BigInteger tipoCuotaid){
+public List<SocioDTO> findAllSocioByTipoCuota(Long tipoCuotaid){
     Optional<TipoCuota> tipoCuota = tipoCuotaRepository.findById(tipoCuotaid);
     List<Socio> socios = (List<Socio>) socioRepository.findAllSocioByTipoCuota(tipoCuota.get());
     return socios.stream().map(socio -> socioConversion.convertirSocioADto(socio)).toList();

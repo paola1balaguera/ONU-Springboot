@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.Entities;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 public class Sede {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "direccion" , nullable = false)
     private String direccion;

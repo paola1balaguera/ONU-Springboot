@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.EntitiesDTO;
 
-import java.math.BigInteger;
+
 import java.util.List;
 
 import com.Proyecto.ONU.Repository.Entities.Ciudad;
@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class SedeDTO {
 
-    private BigInteger id;
+    private Long id;
 
     private String direccion;
 

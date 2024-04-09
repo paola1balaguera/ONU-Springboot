@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.Entities;
 
-import java.math.BigInteger;
+
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class Socio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     private String cuentaBancaria;
 

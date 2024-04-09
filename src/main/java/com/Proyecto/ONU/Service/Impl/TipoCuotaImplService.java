@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -33,7 +33,7 @@ public TipoCuotaDTO save(TipoCuotaDTO tipoCuotaDTO) {
     return tipoCuotaConversion.convertirTipoCuotaADto(tipoCuota);
 }
 
-public TipoCuotaDTO update(BigInteger id, TipoCuotaDTO tipoCuotaDTO){
+public TipoCuotaDTO update(Long id, TipoCuotaDTO tipoCuotaDTO){
     Optional<TipoCuota> tipoCuotaOptional = tipoCuotaRepository.findById(id);
     if(tipoCuotaOptional.isPresent()){
 
@@ -50,7 +50,7 @@ public TipoCuotaDTO update(BigInteger id, TipoCuotaDTO tipoCuotaDTO){
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     tipoCuotaRepository.deleteById(id);
 }
 

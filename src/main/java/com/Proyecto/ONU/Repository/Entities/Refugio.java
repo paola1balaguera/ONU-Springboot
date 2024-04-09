@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.Entities;
 
-import java.math.BigInteger;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class Refugio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "nombre" , nullable = false)
     private String nombre;

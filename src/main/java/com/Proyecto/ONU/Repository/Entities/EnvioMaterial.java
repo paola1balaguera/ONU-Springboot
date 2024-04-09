@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.Entities;
 
-import java.math.BigInteger;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class EnvioMaterial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "toneladas", nullable = true)
     private Long toneladas;

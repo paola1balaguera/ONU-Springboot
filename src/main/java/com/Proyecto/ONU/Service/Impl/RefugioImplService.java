@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +31,7 @@ public RefugioDTO save(RefugioDTO refugioDTO) {
     return refugioConversion.convertirRefugioADto(refugio);
 }
 
-public RefugioDTO update(BigInteger id, RefugioDTO refugioDTO){
+public RefugioDTO update(Long id, RefugioDTO refugioDTO){
     Optional<Refugio> refugioCurrentOptional = refugioRepository.findById(id);
     if(refugioCurrentOptional.isPresent()){
        Refugio refugioCurrent = refugioConversion.convertirDTORefugio(refugioDTO);
@@ -49,7 +49,7 @@ public RefugioDTO update(BigInteger id, RefugioDTO refugioDTO){
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     refugioRepository.deleteById(id);
 }
 

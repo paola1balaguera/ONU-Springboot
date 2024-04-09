@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +32,7 @@ public SedeDTO save(SedeDTO sedeDTO ) {
     return sedeConversion.convertirSedeADto(sede);
 }
 
-public SedeDTO update(BigInteger id, SedeDTO sedeDTO){
+public SedeDTO update(Long id, SedeDTO sedeDTO){
     Optional<Sede> sedeCurrentOptional = sedeRepository.findById(id);
     if(sedeCurrentOptional.isPresent()){
         Sede sedeCurrent = sedeConversion.convertirDTOASede(sedeDTO);
@@ -50,7 +50,7 @@ public SedeDTO update(BigInteger id, SedeDTO sedeDTO){
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     sedeRepository.deleteById(id);
 }
 

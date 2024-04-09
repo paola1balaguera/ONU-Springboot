@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.EntitiesDTO;
 
-import java.math.BigInteger;
+
 import java.sql.Date;
 
 import com.Proyecto.ONU.Repository.Entities.Socio;
@@ -13,10 +13,7 @@ import lombok.Data;
 public class CuotaDTO {
 
 
-    private BigInteger id;
-
-    @NotEmpty(message = "no puede estar vacio")
-    private String cuentaBancaria;
+    private Long id;
 
     @NotEmpty(message = "no puede estar vacio")
     private Long valor;

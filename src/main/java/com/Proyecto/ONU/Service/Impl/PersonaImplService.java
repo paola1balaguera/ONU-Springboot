@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +32,7 @@ public PersonaDTO save(PersonaDTO personaDTO) {
     return personaConversion.convertirPersonaADto(persona);
 }
 
-public PersonaDTO update(BigInteger id, PersonaDTO personaDTO){
+public PersonaDTO update(Long id, PersonaDTO personaDTO){
     Optional<Persona> personaCurrentOptional = personaRepository.findById(id);
     if(personaCurrentOptional.isPresent()){
         Persona personaCurrent = personaConversion.convertirDTOAPersona(personaDTO);
@@ -52,7 +52,7 @@ public PersonaDTO update(BigInteger id, PersonaDTO personaDTO){
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     personaRepository.deleteById(id);
 }
 

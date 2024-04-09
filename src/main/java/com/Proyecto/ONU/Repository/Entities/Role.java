@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.Entities;
 
-import java.math.BigInteger;
+
 
 
 import jakarta.persistence.Column;
@@ -17,7 +17,7 @@ import lombok.Data;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
     @Column(name = "role_name")
     private String name;
     private String description;

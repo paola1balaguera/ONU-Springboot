@@ -1,7 +1,7 @@
 package com.Proyecto.ONU.Controllers;
 
 
-import java.math.BigInteger;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Proyecto.ONU.Configuration.EnvioMaterialConversion;
 import com.Proyecto.ONU.Repository.EntitiesDTO.EnvioMaterialDTO;
 import com.Proyecto.ONU.Service.EnvioMaterialService;
 
@@ -33,6 +34,7 @@ import lombok.AllArgsConstructor;
 public class EnvioMaterialController {
     @Autowired
     private EnvioMaterialService envioMaterialService;
+    private EnvioMaterialConversion envioMaterialConversion;
     
     @GetMapping("/")
     public List<EnvioMaterialDTO> findAll() {
@@ -73,7 +75,7 @@ public class EnvioMaterialController {
     
 
     @PutMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> update(@PathVariable BigInteger id, @Validated @RequestBody EnvioMaterialDTO envioMaterialDTO, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> update(@PathVariable Long id, @Validated @RequestBody EnvioMaterialDTO envioMaterialDTO, BindingResult result) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -105,7 +107,12 @@ public class EnvioMaterialController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable BigInteger id){
+    public void deleteById(@PathVariable Long id){
         envioMaterialService.deleteById(id);
     } 
+
+    @GetMapping("/{id}")
+    public EnvioMaterialDTO findById(@PathVariable Long id){
+       return envioMaterialService.findById(id);
+    }
 }

@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.EntitiesDTO;
 
-import java.math.BigInteger;
+
 import java.sql.Date;
 import java.util.List;
 
@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 public class EnvioDTO {
-    private BigInteger id;
+    private Long id;
 
     private Date fechaSalida; 
 

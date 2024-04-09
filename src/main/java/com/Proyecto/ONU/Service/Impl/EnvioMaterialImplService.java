@@ -2,7 +2,7 @@ package com.Proyecto.ONU.Service.Impl;
 
 import com.Proyecto.ONU.Service.EnvioMaterialService;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +31,7 @@ public EnvioMaterialDTO save(EnvioMaterialDTO envioMaterialDTO) {
     return envioMaterialConversion.convertirEnvioMaterialADto(envioMaterial);
 }
 
-public EnvioMaterialDTO update(BigInteger id, EnvioMaterialDTO envioMaterialDTO){
+public EnvioMaterialDTO update(Long id, EnvioMaterialDTO envioMaterialDTO){
     Optional<EnvioMaterial> envioMaterialCurrentOptional = envioMaterialRepository.findById(id);
     if(envioMaterialCurrentOptional.isPresent()){
         EnvioMaterial envioMaterialCurrent = envioMaterialConversion.convertirDTOAEnvioMaterial(envioMaterialDTO);
@@ -50,7 +50,7 @@ public EnvioMaterialDTO update(BigInteger id, EnvioMaterialDTO envioMaterialDTO)
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     envioMaterialRepository.deleteById(id);
 }
 
@@ -65,7 +65,7 @@ public List<EnvioMaterialDTO> findAll(){
 
 @Override
 @Transactional(readOnly = true)
-public EnvioMaterialDTO findById(BigInteger id){
+public EnvioMaterialDTO findById(Long id){
     Optional<EnvioMaterial> envioMaterialCurrentOptional = envioMaterialRepository.findById(id);
 
     return envioMaterialConversion.convertirEnvioMaterialADto(envioMaterialCurrentOptional.get());

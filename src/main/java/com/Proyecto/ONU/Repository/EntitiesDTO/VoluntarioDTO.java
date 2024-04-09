@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.EntitiesDTO;
 
-import java.math.BigInteger;
+
 
 import com.Proyecto.ONU.Repository.Entities.Persona;
 import com.Proyecto.ONU.Repository.Entities.Voluntario;
@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 public class VoluntarioDTO {
-    private BigInteger id;
+    private Long id;
 
     private Voluntario.tipoVoluntario tipo; 
 

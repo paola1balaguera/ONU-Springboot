@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Controllers;
 
-import java.math.BigInteger;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +72,7 @@ public class SocioController {
     
 
     @PutMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> update(@PathVariable BigInteger id, @Validated @RequestBody SocioDTO socioDTO, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> update(@PathVariable Long id, @Validated @RequestBody SocioDTO socioDTO, BindingResult result) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -104,13 +104,13 @@ public class SocioController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable BigInteger id){
+    public void deleteById(@PathVariable Long id){
         socioService.deleteById(id);
     } 
 
     
     @GetMapping("/socioTipoCuota/{tipoCuotaid}")
-    List<SocioDTO> findAllSocioByTipoCuota(@PathVariable("tipoCuotaid") BigInteger tipoCuotaid){
+    List<SocioDTO> findAllSocioByTipoCuota(@PathVariable("tipoCuotaid") Long tipoCuotaid){
         return socioService.findAllSocioByTipoCuota(tipoCuotaid);
     }
 

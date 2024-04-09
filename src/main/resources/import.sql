@@ -1,3 +1,4 @@
+
 -- Insertar un usuario
 
 INSERT INTO usuario (cedula, email, pwd, fecha) VALUES (1005372613, 'account@debuggeandoieas.com', 'to_be_encoded', '2015-12-01');

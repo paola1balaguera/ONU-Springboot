@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.EntitiesDTO;
 
-import java.math.BigInteger;
+
 
 import com.Proyecto.ONU.Repository.Entities.Persona;
 import com.Proyecto.ONU.Repository.Entities.TipoCuota;
@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class SocioDTO {
 
-    private BigInteger id;
+    private Long id;
 
     @NotEmpty(message = "no puede estar vacio")
     private String cuentaBancaria;

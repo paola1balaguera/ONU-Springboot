@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.EntitiesDTO;
 
-import java.math.BigInteger;
+
 import java.sql.Date;
 import com.Proyecto.ONU.Repository.Entities.Sede;
 
@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class PersonaDTO {
 
-    private BigInteger id;
+    private Long id;
 
     @NotEmpty(message = "no puede estar vacio")
     private String nombreCompleto;

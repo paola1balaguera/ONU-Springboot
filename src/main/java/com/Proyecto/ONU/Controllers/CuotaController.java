@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Controllers;
 
-import java.math.BigInteger;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,7 +73,7 @@ public class CuotaController {
     
 
     @PutMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> update(@PathVariable BigInteger id, @Validated @RequestBody CuotaDTO cuotaDTO, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> update(@PathVariable Long id, @Validated @RequestBody CuotaDTO cuotaDTO, BindingResult result) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -105,7 +105,7 @@ public class CuotaController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable BigInteger id){
+    public void deleteById(@PathVariable Long id){
         cuotaService.deleteById(id);
     } 
 }

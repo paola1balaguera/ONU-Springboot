@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +31,7 @@ public MaterialDTO save(MaterialDTO materialDTO) {
     return materialConversion.convertirMaterialADto(material);
 }
 
-public MaterialDTO update(BigInteger id, MaterialDTO materialDTO){
+public MaterialDTO update(Long id, MaterialDTO materialDTO){
     Optional<Material> materialCurrentOptional = materialRepository.findById(id);
     if(materialCurrentOptional.isPresent()){
         Material materialCurrent = materialConversion.convertirDTOAMaterial(materialDTO);
@@ -47,7 +47,7 @@ public MaterialDTO update(BigInteger id, MaterialDTO materialDTO){
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     materialRepository.deleteById(id);
 }
 

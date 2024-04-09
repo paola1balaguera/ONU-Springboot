@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +31,7 @@ public CiudadDTO save(CiudadDTO ciudadDTO) {
     return ciudadConversion.convertirCiudadADto(ciudad);
 }
 
-public CiudadDTO update(BigInteger id, CiudadDTO ciudadDTO){
+public CiudadDTO update(Long id, CiudadDTO ciudadDTO){
     Optional<Ciudad> ciudadCurrentOptional = ciudadRepository.findById(id);
     if(ciudadCurrentOptional.isPresent()){
         Ciudad ciudadCurrent = ciudadConversion.convertirDTOACiudad(ciudadDTO);
@@ -46,7 +46,7 @@ public CiudadDTO update(BigInteger id, CiudadDTO ciudadDTO){
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     ciudadRepository.deleteById(id);
 }
 

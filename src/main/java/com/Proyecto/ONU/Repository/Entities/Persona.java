@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.Entities;
 
-import java.math.BigInteger;
+
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     private String nombreCompleto;
     private Date fechaNacimiento ;

@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Controllers;
 
-import java.math.BigInteger;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +72,7 @@ public class EnvioController {
     
 
     @PutMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> update(@PathVariable BigInteger id, @Validated @RequestBody EnvioDTO envioDTO, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> update(@PathVariable Long id, @Validated @RequestBody EnvioDTO envioDTO, BindingResult result) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -104,7 +104,18 @@ public class EnvioController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable BigInteger id){
+    public void deleteById(@PathVariable Long id){
        envioService.deleteById(id);
     } 
+
+    @GetMapping("/{id}")
+    public EnvioDTO findById(@PathVariable Long id){
+       return envioService.findById(id);
+    }
+
+
+    @GetMapping("/enviosAyudaHumanitaria")
+    public List<EnvioDTO> informeEnvioAyudaHumanitaria(){
+        return envioService.informeEnvioAyudaHumanitaria();
+    }
 }

@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.Entities;
 
-import java.math.BigInteger;
+
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 public class Voluntario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     public enum tipoVoluntario{
         sanitario,

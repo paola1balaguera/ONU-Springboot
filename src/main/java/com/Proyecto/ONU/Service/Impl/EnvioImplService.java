@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +31,7 @@ public EnvioDTO save(EnvioDTO envioDTO) {
     return envioConversion.convertirEnvioADto(envio);
 }
 
-public EnvioDTO update(BigInteger id, EnvioDTO envioDTO){
+public EnvioDTO update(Long id, EnvioDTO envioDTO){
     Optional<Envio> envioCurrentOptional = envioRepository.findById(id);
     if(envioCurrentOptional.isPresent()){
         Envio envioCurrent = envioConversion.convertirDTOAEnvio(envioDTO);
@@ -51,7 +51,7 @@ public EnvioDTO update(BigInteger id, EnvioDTO envioDTO){
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     envioRepository.deleteById(id);
 }
 
@@ -66,13 +66,21 @@ public List<EnvioDTO> findAll(){
 
 @Override
 @Transactional(readOnly = true)
-public EnvioDTO findById(BigInteger id){
+public EnvioDTO findById(Long id){
     Optional<Envio> envioCurrentOptional = envioRepository.findById(id);
 
     return envioConversion.convertirEnvioADto(envioCurrentOptional.get());
 
 }
 
+@Override
+@Transactional(readOnly = true)
+public List<EnvioDTO> informeEnvioAyudaHumanitaria(){
+    List<Envio> envios = (List<Envio>) envioRepository.informeEnvioAyudaHumanitaria();
+    return envios.stream()
+                    .map(enviito -> envioConversion.convertirEnvioADto(enviito))
+                    .toList();
+}
 
 
 }

@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +32,7 @@ public VoluntarioDTO save(VoluntarioDTO voluntarioDTO) {
     return voluntarioConversion.convertirVoluntarioADto(voluntario);
 }
 
-public VoluntarioDTO update(BigInteger id, VoluntarioDTO voluntarioDTO){
+public VoluntarioDTO update(Long id, VoluntarioDTO voluntarioDTO){
     Optional<Voluntario> voluntarioOptional = voluntarioRepository.findById(id);
     if(voluntarioOptional.isPresent()){
 
@@ -54,7 +54,7 @@ public VoluntarioDTO update(BigInteger id, VoluntarioDTO voluntarioDTO){
 }
 
 @Override
-public void deleteById(BigInteger id){
+public void deleteById(Long id){
     voluntarioRepository.deleteById(id);
 }
 
@@ -69,13 +69,13 @@ public List<VoluntarioDTO> findAll(){
                  .toList();
     }
 
+
 @Override
-public  List<VoluntarioDTO> findVoluntarioByProfesionAndSede(){
-    List<Voluntario> voluntarios = (List<Voluntario>) voluntarioRepository.findVoluntarioByProfesionAndSede();
+public List<VoluntarioDTO> listarVoluntarioProfesionSede(){
+    List<Voluntario> voluntarios = (List<Voluntario>) voluntarioRepository.listarVoluntarioProfesionSede();
     return voluntarios.stream()
                     .map(voluntariito -> voluntarioConversion.convertirVoluntarioADto(voluntariito))
                     .toList();
-
 }
 
 }

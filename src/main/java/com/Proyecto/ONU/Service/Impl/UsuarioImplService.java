@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Service.Impl;
 
-import java.math.BigInteger;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +36,7 @@ public class UsuarioImplService implements UsuarioService {
 
     @Override
     @Transactional
-    public UsuarioDTO update(BigInteger id, UsuarioDTO usuario){
+    public UsuarioDTO update(Long id, UsuarioDTO usuario){
 
         //busca el usuario por id en la bd
         Optional<Usuario> usuarioCurrentOptional = usuarioRepository.findById(id);
@@ -58,7 +58,7 @@ public class UsuarioImplService implements UsuarioService {
     }
 
     @Override 
-    public void deleteById(BigInteger id){
+    public void deleteById(Long id){
         usuarioRepository.deleteById(id);
     }
 

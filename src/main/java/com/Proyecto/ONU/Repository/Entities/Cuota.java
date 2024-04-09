@@ -1,6 +1,6 @@
 package com.Proyecto.ONU.Repository.Entities;
 
-import java.math.BigInteger;
+
 import java.sql.Date;
 
 import jakarta.persistence.Column;
@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class Cuota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "valor", nullable = true)
     private Long valor;
