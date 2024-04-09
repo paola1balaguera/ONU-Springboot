@@ -12,15 +12,12 @@ public interface VoluntarioRepository extends JpaRepository<Voluntario, BigInteg
 
     //List<Voluntario> getVoluntarioByProfesionAndSede();
 
-    String FIND_VOLUNTARIO_PROFESION_SEDE = "SELECT nombre_completo, profesion, nombre FROM voluntario JOIN persona ON id = voluntario.persona_id JOIN sede ON id = persona.sede_id ORDER BY sede_id AND profesion";
-
-   // String INFORME_DE_VOLUNTARIOS = "";
+    String FIND_VOLUNTARIO_PROFESION_SEDE = "SELECT nombre_completo, profesion, nombre FROM voluntario JOIN persona ON id = voluntario.persona_id JOIN sede ON id = persona.sede_id ORDER BY sede_id";
 
     @Query(value = FIND_VOLUNTARIO_PROFESION_SEDE, nativeQuery = true)
     List<Voluntario> findVoluntarioByProfesionAndSede();
 
-    //@Query(value = INFORME_DE_VOLUNTARIOS, nativeQuery = true)
-    //List<Voluntario> InformeDeVoluntarios();
+
 
 /* 
 SELECT  */

@@ -34,10 +34,10 @@ public class SecurityConfig {
         requestHandler.setCsrfRequestAttributeName("_csrf");
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/h2-console", "/authenticate").permitAll()
-                .requestMatchers(HttpMethod.GET, "/socios/socioTipoCuota/{tipoCuotaid}").hasAnyRole("DIRECTOR", "ADMIN")
+                .requestMatchers(HttpMethod.GET, "/socios/socioTipoCuota/{tipoCuotaid}","/socios/informeCuotaPorSocio").hasAnyRole("DIRECTOR", "ADMIN")
                 .requestMatchers("/personas/**","/socios/**","/voluntarios/**","/envios/**").hasAnyRole("DIRECTOR", "ADMIN")
-                .requestMatchers( "/ciudades/**", "/cuotas/**","/refugios/**","/sedes/**","tipoCuotas/**","/usuarios/**","/materiales/**").hasRole("ADMIN")
-                .anyRequest().denyAll())
+                .requestMatchers( "/ciudades/**", "/cuotas/**","/refugios/**","/sedes/**","tipoCuotas/**","/usuarios/**","/materiales/**","/envioMateriales/**").hasRole("ADMIN")
+                .anyRequest().permitAll())
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
                 /* 
@@ -55,7 +55,7 @@ public class SecurityConfig {
         http.cors(cors -> corsConfigurationSource());
         http.csrf(csrf -> csrf
                 .csrfTokenRequestHandler(requestHandler)
-                .ignoringRequestMatchers("/authenticate","/h2-console","/usuarios/**","/ciudades/**", "/cuotas/**","/envios/**","/personas/**","/refugios/**","/sedes/**","tipoCuotas/**","/usuarios/**","/voluntarios/**","/socios/**","/materiales/**")
+                .ignoringRequestMatchers("/authenticate","/h2-console","/usuarios/**","/ciudades/**", "/cuotas/**","/envios/**","/personas/**","/refugios/**","/sedes/**","tipoCuotas/**","/usuarios/**","/voluntarios/**","/socios/**","/materiales/**", "/envioMateriales/**")
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class);
         return http.build();

@@ -73,6 +73,15 @@ public List<SocioDTO> findAllSocioByTipoCuota(BigInteger tipoCuotaid){
     
 } 
 
+@Override
+@Transactional(readOnly = true)
+public List<SocioDTO> InformeCuotaPorSocio(){
+    List<Socio> socios = (List<Socio>) socioRepository.InformeCuotaPorSocio();
+    return socios.stream().map(socio -> socioConversion.convertirSocioADto(socio)).toList();
+    
+} 
+
+
 
 
 

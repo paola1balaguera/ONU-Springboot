@@ -1,5 +1,6 @@
 package com.Proyecto.ONU.Controllers;
 
+
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
@@ -20,27 +21,27 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.Proyecto.ONU.Repository.EntitiesDTO.SocioDTO;
-import com.Proyecto.ONU.Service.SocioService;
+
+import com.Proyecto.ONU.Repository.EntitiesDTO.EnvioMaterialDTO;
+import com.Proyecto.ONU.Service.EnvioMaterialService;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/socios")
-public class SocioController {
-    
+@RequestMapping("/envioMateriales")
+public class EnvioMaterialController {
     @Autowired
-    private SocioService socioService;
+    private EnvioMaterialService envioMaterialService;
     
     @GetMapping("/")
-    public List<SocioDTO> findAll() {
-        return socioService.findAll();
+    public List<EnvioMaterialDTO> findAll() {
+        return envioMaterialService.findAll();
     }
 
 
     @PostMapping("/")
-    public ResponseEntity<Map<String, Object>> save(@Validated @RequestBody SocioDTO socioDTO, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> save(@Validated @RequestBody EnvioMaterialDTO envioMaterialDTO, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
 
         try {
@@ -54,11 +55,11 @@ public class SocioController {
                 return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
             }
 
-            SocioDTO socioSave = null;
-            socioSave = socioService.save(socioDTO);
+            EnvioMaterialDTO envioMaterialSave = null;
+           envioMaterialSave = envioMaterialService.save(envioMaterialDTO);
 
-            response.put("mensaje", "El socio ha sido creado con éxito");
-            response.put("Socio", socioSave);
+            response.put("mensaje", "Envio material ha sido creado con éxito");
+            response.put("Envio material", envioMaterialSave);
 
             return new ResponseEntity<>(response, HttpStatus.OK);
 
@@ -72,7 +73,7 @@ public class SocioController {
     
 
     @PutMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> update(@PathVariable BigInteger id, @Validated @RequestBody SocioDTO socioDTO, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> update(@PathVariable BigInteger id, @Validated @RequestBody EnvioMaterialDTO envioMaterialDTO, BindingResult result) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -87,11 +88,11 @@ public class SocioController {
                 return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
             }
 
-            SocioDTO socioUpdate = null;
-            socioUpdate = socioService.update(id, socioDTO);
+            EnvioMaterialDTO envioMaterialUpdate = null;
+            envioMaterialUpdate = envioMaterialService.update(id, envioMaterialDTO);
 
-            response.put("mensaje", "La persona ha sido actualizado con éxito");
-            response.put("Persona", socioUpdate);
+            response.put("mensaje", "El envio material ha sido actualizado con éxito");
+            response.put("Envio material", envioMaterialUpdate);
 
             return new ResponseEntity<>(response, HttpStatus.OK);
 
@@ -105,20 +106,6 @@ public class SocioController {
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable BigInteger id){
-        socioService.deleteById(id);
+        envioMaterialService.deleteById(id);
     } 
-
-    
-    @GetMapping("/socioTipoCuota/{tipoCuotaid}")
-    List<SocioDTO> findAllSocioByTipoCuota(@PathVariable("tipoCuotaid") BigInteger tipoCuotaid){
-        return socioService.findAllSocioByTipoCuota(tipoCuotaid);
-    }
-
-    @GetMapping("/informeCuotaPorSocio")
-    List<SocioDTO> InformeCuotaPorSocio(){
-        return socioService.InformeCuotaPorSocio();
-    }
-
-
-
 }

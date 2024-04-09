@@ -16,4 +16,6 @@ public interface SocioService {
     List<SocioDTO> findAll();
 
     List<SocioDTO> findAllSocioByTipoCuota(BigInteger ipoCuotaid);
+    
+    List<SocioDTO> InformeCuotaPorSocio();
 }

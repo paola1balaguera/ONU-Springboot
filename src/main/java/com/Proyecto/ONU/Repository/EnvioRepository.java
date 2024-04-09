@@ -8,4 +8,5 @@ import com.Proyecto.ONU.Repository.Entities.Envio;
 
 public interface EnvioRepository extends JpaRepository<Envio, BigInteger>{
     
+   
 }
