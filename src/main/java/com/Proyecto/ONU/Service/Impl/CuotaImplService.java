@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.Proyecto.ONU.Configuration.CuotaConversion;
+import com.Proyecto.ONU.Exceptions.NotFoundElementsException;
+import com.Proyecto.ONU.Exceptions.TipoDatoIncorrectoException;
 import com.Proyecto.ONU.Repository.CuotaRepository;
 import com.Proyecto.ONU.Repository.Entities.Cuota;
 import com.Proyecto.ONU.Repository.EntitiesDTO.CuotaDTO;
@@ -28,12 +30,15 @@ public class CuotaImplService implements CuotaService {
     @Override
     @Transactional
     public CuotaDTO save(CuotaDTO cuotaDTO) {
-
-        Cuota cuota = cuotaConversion.convertirDTOACuota(cuotaDTO);
-        cuotaRepository.save(cuota);
-        return cuotaConversion.convertirCuotaADto(cuota);
-
+        try {
+            Cuota cuota = cuotaConversion.convertirDTOACuota(cuotaDTO);
+            cuotaRepository.save(cuota);
+            return cuotaConversion.convertirCuotaADto(cuota);
+        } catch (NumberFormatException e) {
+            throw new TipoDatoIncorrectoException("El tipo de dato en CuotaDTO no coincide con el de la entidad Cuota");
+        }
     }
+    
 
 
     public CuotaDTO update(Long id, CuotaDTO cuotaDTO){
@@ -69,9 +74,15 @@ public class CuotaImplService implements CuotaService {
     @Transactional(readOnly = true)
     public List<CuotaDTO> findAll(){
         List<Cuota> cuotas = (List<Cuota>) cuotaRepository.findAll();
-            return cuotas.stream()
-                         .map(cuotita -> cuotaConversion.convertirCuotaADto(cuotita))
-                         .toList();
+        
+        if (cuotas.isEmpty()) {
+            throw new NotFoundElementsException("No se encontraron elementos en la lista de cuotas");
+        }
+        
+        return cuotas.stream()
+                     .map(cuotita -> cuotaConversion.convertirCuotaADto(cuotita))
+                     .toList();
     }
+    
 
 }
